@@ -577,13 +577,40 @@ hr {
 
 }
 
-@media (max-width: 992px) { 
-    /* HOBBIES SECTION (TRANSFORMASI DARI 3 KOLOM KE 1 KOLOM) */
-    .hobbies-media-container {
-        grid-template-columns: 1fr; 
-        margin-top: 30px;
-        gap: 20px;
+@media (max-width: 768px) {
+    
+    /* Targetkan daftar menu */
+    nav ul {
+        /* Wajib: Memastikan semua item menu berbaris dalam satu baris, tidak melompat baris */
+        white-space: nowrap; 
+        
+        /* Wajib: Mengaktifkan pengguliran horizontal saat konten melebihi lebar */
+        overflow-x: auto; 
+        
+        /* Opsional: Menyembunyikan scrollbar agar tampilan lebih bersih (hanya di WebKit/iOS/Android) */
+        -ms-overflow-style: none; /* Untuk IE dan Edge */
+        scrollbar-width: none; /* Untuk Firefox */
+        
+        /* Tambahan: Tambahkan ruang di kiri/kanan agar menu terlihat lebih baik saat digulir */
+        padding: 0 10px; 
     }
+    
+    /* Opsional: Sembunyikan scrollbar di Chrome/Safari/Opera */
+    nav ul::-webkit-scrollbar {
+        display: none; 
+    }
+
+    /* Pastikan list item (li) tetap berbaris */
+    nav ul li {
+        display: inline-block; /* Gunakan inline-block agar item tetap berada dalam satu baris */
+        margin: 0 10px; /* Kurangi margin horizontal agar lebih hemat tempat */
+    }
+
+    /* Hilangkan properti flex dari nav (jika ada konflik) */
+    nav {
+        display: block;
+    }
+}
     
     .hobbies-media-container > * {
         grid-column: 1 / 2;
@@ -601,3 +628,4 @@ hr {
         height: 200px;
     }
 }
+
