@@ -577,39 +577,46 @@ hr {
 
 }
 
+/* --- Penyesuaian Navigasi Khusus Mobile --- */
 @media (max-width: 768px) {
     
-    /* Targetkan daftar menu */
-    nav ul {
-        /* Wajib: Memastikan semua item menu berbaris dalam satu baris, tidak melompat baris */
-        white-space: nowrap; 
-        
-        /* Wajib: Mengaktifkan pengguliran horizontal saat konten melebihi lebar */
-        overflow-x: auto; 
-        
-        /* Opsional: Menyembunyikan scrollbar agar tampilan lebih bersih (hanya di WebKit/iOS/Android) */
-        -ms-overflow-style: none; /* Untuk IE dan Edge */
-        scrollbar-width: none; /* Untuk Firefox */
-        
-        /* Tambahan: Tambahkan ruang di kiri/kanan agar menu terlihat lebih baik saat digulir */
-        padding: 0 10px; 
-    }
-    
-    /* Opsional: Sembunyikan scrollbar di Chrome/Safari/Opera */
-    nav ul::-webkit-scrollbar {
-        display: none; 
-    }
-
-    /* Pastikan list item (li) tetap berbaris */
-    nav ul li {
-        display: inline-block; /* Gunakan inline-block agar item tetap berada dalam satu baris */
-        margin: 0 10px; /* Kurangi margin horizontal agar lebih hemat tempat */
-    }
-
-    /* Hilangkan properti flex dari nav (jika ada konflik) */
+    /* Navigasi Bar harus menjadi blok biasa agar ul bisa digulir */
     nav {
         display: block;
+        padding: 10px 0; /* Kurangi padding vertikal */
     }
+
+    /* KUNCI: MENGAKTIFKAN SCROLL HORIZONTAL */
+    nav ul {
+        display: block; /* Menonaktifkan Flexbox default */
+        text-align: left; /* Tautan rata kiri */
+        
+        white-space: nowrap; /* Memaksa semua item tetap dalam satu baris */
+        overflow-x: auto;    /* Mengaktifkan pengguliran horizontal */
+        overflow-y: hidden;
+        
+        /* Opsional: Menyembunyikan scrollbar agar tampilan lebih bersih */
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
+        
+        padding: 0 10px; /* Sedikit padding horizontal agar item tidak menempel di sisi */
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    /* KUNCI: Item harus menjadi inline agar berbaris dan bisa digulir */
+    nav ul li {
+        display: inline-block; /* Agar item tetap berbaris horizontal */
+        margin: 0 8px; /* Kurangi margin antar item */
+    }
+    
+    nav ul li a {
+        padding: 8px 10px; /* Kurangi padding link */
+    }
+
+    /* ... sisa kode @media (max-width: 768px) Anda ... */
 }
     
     .hobbies-media-container > * {
@@ -628,4 +635,5 @@ hr {
         height: 200px;
     }
 }
+
 
