@@ -1,0 +1,664 @@
+/* Reset default margin/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ----------------------------------- */
+/* 1. NAVBAR STYLING */
+/* ----------------------------------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: bold;
+    position: relative; 
+    padding: 10px 15px; 
+    transition: color 0.3s;
+}
+
+/* Kotak Animasi Putih Transparan pada Hover */
+nav ul li a::after {
+    content: ''; 
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 4px; 
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+    transform: scale(0); 
+    opacity: 0;
+    transform-origin: center; 
+}
+
+/* Efek Hover */
+nav ul li a:hover {
+    color: #ffffff; 
+}
+
+nav ul li a:hover::after {
+    transform: scale(1); 
+    opacity: 1;
+}
+
+
+/* ----------------------------------- */
+/* 2. SECTION & HOME STYLING */
+/* ----------------------------------- */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+/* Warna section (Sudah diubah ke Hitam untuk Experiences, Skills, Organizations) */
+#home { background: #f4f4f4; }
+#about { background: #000000; color: #fff; }
+#experiences { background: #000000; color: #ffffff; }
+#skills { background: #000000; color: #ffffff; }
+#organizations { background: #000000; color: #ffffff; }
+#hobbies { background: #f2c6de; }
+
+
+/* Home section specific styling */
+#home { 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    text-align: left; 
+
+    /* Latar Belakang Gambar & Gradien */
+    background: 
+        linear-gradient(to bottom, 
+            rgba(0, 0, 0, 0) 80%, 
+            #000000 100% 
+        ),
+        url('image/ciremai.jpg'); 
+        
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: scroll; 
+    color: #fff; 
+}
+.home-content {
+    margin-left: 10%; 
+    max-width: 800px;
+    padding: 20px;
+}
+#home h1 {
+    font-size: 3.5em; 
+    margin-bottom: 1px;
+    text-align: left;
+}
+
+#home h2 {
+    font-size: 2.5em; 
+    margin-bottom: 1px;
+    text-align: left;
+}
+
+/* Social links styling */
+.social-links {
+    margin-top: 30px; 
+    display: flex;
+    gap: 25px; 
+    justify-content: flex-start;
+}
+
+.social-links a {
+    background-color: #fff; 
+    border-radius: 50%; 
+    width: 55px; 
+    height: 55px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 2em; 
+    text-decoration: none; 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+}
+
+.social-links a[title="LinkedIn"] { color: #0A66C2; }
+.social-links a[title="Instagram"] { color: #C13584; }
+.social-links a[title="WhatsApp"] { color: #25D366; }
+
+.social-links a:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); 
+    opacity: 0.8;
+}
+
+/* ----------------------------------- */
+/* 3. GENERAL CONTENT & TYPOGRAPHY */
+/* ----------------------------------- */
+.section-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.section-content h1 {
+    text-align: left;
+    margin-bottom: 30px;
+    padding-left: 0; 
+    color: inherit; /* Akan mengambil warna dari section induk (hitam/putih) */
+}
+
+.section-content p {
+    max-width: 100%;
+    margin: 0 0 15px 0;
+    text-align: left;
+    color: inherit; 
+}
+
+
+/* ----------------------------------- */
+/* 4. ABOUT SECTION LAYOUT (FINAL) */
+/* ----------------------------------- */
+
+.about-layout {
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.about-image {
+    flex: 2; 
+    min-width: 300px; 
+    text-align: center; 
+}
+
+.about-image img {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0 8px 16px rgb(185, 170, 170); 
+}
+
+.about-text-box {
+    flex: 1.5; 
+    min-width: 300px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(181, 179, 179, 0.379);
+}
+
+.about-text-box h1 {
+    margin-top: 0;
+    color: #fff; 
+}
+.about-text-box p {
+    color: #eee; 
+}
+
+/* ----------------------------------- */
+/* 5. EXPERIENCES STYLING (MODIFIED - NO TIMELINE) */
+/* ----------------------------------- */
+#experiences {
+    background: #000000; 
+    color: #ffffff; 
+}
+
+/* Hapus padding-left dari timeline */
+#experiences .section-content {
+    position: relative;
+    padding-left: 0; 
+}
+
+/* Item Pengalaman (Kotak Konten) */
+.experience-item {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 40px; 
+    margin-left: 0; /* Rata kiri */
+    background-color: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.experience-item:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2); 
+}
+
+.experience-item h3 {
+    color: #030303; 
+    margin-bottom: 5px;
+}
+
+.experience-item .company-name {
+    font-style: italic;
+    color: #7f8c8d; 
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.experience-item ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    padding-left: 0;
+    color: #666; 
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd; 
+    margin: 30px 0;
+}
+
+
+/* ----------------------------------- */
+/* 6. ANIMATION REVEAL (CSS UNTUK JAVASCRIPT) */
+/* ----------------------------------- */
+
+/* Gaya Awal (Tersembunyi) */
+.animate-slide-left,
+.animate-slide-right,
+.experience-item,
+.animate-up { 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    opacity: 0; 
+}
+
+.animate-slide-left {
+    transform: translateX(-50px); 
+}
+
+.animate-slide-right,
+.experience-item { 
+    transform: translateX(50px); 
+}
+.animate-up {
+    transform: translateY(50px);
+}
+
+/* Gaya Akhir (Muncul/Terlihat) */
+.animate-slide-left.show,
+.animate-slide-right.show,
+.experience-item.show,
+.animate-up.show {
+    opacity: 1;
+    transform: translateX(0); 
+    transform: translateY(0);
+}
+
+.delay-2 { transition-delay: 0.2s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-6 { transition-delay: 0.6s; }
+
+
+/* ----------------------------------- */
+/* 7. MEDIA QUERIES (RESPONSIVITAS) */
+/* ----------------------------------- */
+@media (max-width: 768px) {
+    .about-layout {
+        flex-direction: column; 
+        text-align: center;
+    }
+    .about-image {
+        margin-bottom: 30px;
+    }
+    .about-text-box {
+        padding: 20px;
+    }
+    .home-content {
+        margin-left: 0; 
+        text-align: center;
+    }
+    #home h1, #home h2 {
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center; 
+    }
+    
+    /* Responsivitas Galeri Toyota */
+    #toyota-gallery {
+        padding: 10px 10px 20px 10px; 
+    }
+    .photo-row-bottom {
+        gap: 10px;
+    }
+    .large-photo {
+        max-width: 90%; 
+        height: 200px;
+    }
+    .small-photo {
+        max-width: 30%; 
+        height: 120px; 
+    }
+}
+
+
+/* ----------------------------------- */
+/* 11. TOYOTA GALLERY STYLING (1 BESAR, 3 KECIL) */
+/* ----------------------------------- */
+
+#toyota-gallery {
+    background: #000000; 
+    color: #ffffff; 
+    padding: 10px 20px 30px 20px; 
+    min-height: auto; 
+}
+
+#toyota-gallery h1 {
+    color: #ffffff; 
+    text-align: center;
+    margin-top: -20px; 
+    font-size: 2.2em; 
+    margin-bottom: 5px; 
+}
+
+#toyota-gallery p {
+    text-align: center;
+    margin-bottom: 20px; 
+    font-size: 1em;
+    color: #ccc; 
+}
+
+/* Container untuk mengatur jarak antar row */
+.photo-row-top,
+.photo-row-bottom {
+    display: flex;
+    justify-content: center; 
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Penting untuk responsivitas */
+}
+
+/* Gaya untuk Foto Tunggal (Atas) */
+.large-photo {
+    width: 100%;
+    max-width: 600px; 
+    height: 320px; 
+}
+
+/* Gaya untuk Tiga Foto (Bawah) */
+.small-photo {
+    width: calc(33.333% - 10px); /* 3 foto dengan gap 15px */
+    max-width: 300px; 
+    height: 180px; 
+}
+
+.gallery-img {
+    object-fit: cover; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6); 
+}
+
+
+/* ----------------------------------- */
+/* 8. SKILLS STYLING */
+/* ----------------------------------- */
+#skills .section-content {
+    color: #ffffff; 
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 280px; 
+    padding: 20px;
+    background-color: #333333; /* Warna gelap agar kontras di background hitam */
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    color: #3498db; 
+    border-bottom: 2px solid #555555;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category ul li {
+    padding: 5px 0;
+    font-size: 1em;
+    margin-left: 10px;
+}
+.skill-category ul li i {
+    margin-right: 8px;
+}
+
+
+/* ----------------------------------- */
+/* 9. ORGANIZATIONS STYLING (LAYOUT DENGAN FOTO) */
+/* ----------------------------------- */
+
+/* Pastikan elemen di dalam section content terlihat di background hitam */
+#organizations .section-content h1,
+#organizations .section-content p {
+    color: #ffffff;
+}
+
+/* Container untuk Teks Kiri dan Foto Kecil Kanan */
+.organization-with-image {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; 
+    margin-bottom: 20px;
+}
+
+.org-text {
+    flex: 2; 
+    min-width: 300px;
+}
+
+.org-image-small {
+    flex: 1; 
+    text-align: center;
+    min-width: 200px;
+}
+
+/* Styling Foto Vertikal (Poto 1) */
+.org-image-small img {
+    width: 100%;
+    max-width: 250px; 
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); 
+}
+
+/* Foto Besar Memanjang (Poto 2) */
+.organization-image-large {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px; 
+}
+
+/* Styling Foto Horizontal (Poto 2) */
+.organization-image-large img {
+    width: 100%;
+    max-width: 960px; 
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); 
+}
+
+/* Styling Konten Teks di dalam Organization */
+#organizations .organization-item {
+    background-color: #ffffff;
+    color: #333;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#organizations .organization-item h3 {
+    color: #000000; 
+}
+#organizations .organization-item p, 
+#organizations .organization-item .role,
+#organizations .organization-item .duration {
+    color: #555; 
+}
+#organizations .organization-item ul {
+    list-style: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+
+/* ----------------------------------- */
+/* 10. HOBBIES STYLING (2 BARIS x 3 KOLOM - Campuran Media) */
+/* ----------------------------------- */
+#hobbies {
+    background: #000000; 
+    color: #ffffff; 
+    min-height: auto; 
+    padding: 80px 20px; 
+}
+
+#hobbies .section-content h1,
+#hobbies .section-content p {
+    color: #ffffff; 
+    text-align: center;
+}
+
+/* Kontainer utama menggunakan Grid 3 kolom */
+.hobbies-media-container {
+    display: grid;
+    /* Kunci: 3 kolom dengan lebar yang sama (1fr 1fr 1fr) */
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 25px; 
+    align-items: center; 
+    justify-items: center; 
+    max-width: 1000px; 
+    margin: 30px auto 0 auto; 
+}
+
+/* Jarak vertikal antara baris 1 dan baris 2 */
+.hobbies-media-container.second-row {
+    margin-top: 30px; 
+}
+
+
+/* Penempatan Konten di Grid */
+/* Menggunakan nth-child di kedua baris untuk menempatkan elemen di kolom yang benar */
+
+/* Item Kiri (Anak ke-1) */
+.hobbies-media-container > :nth-child(1) { 
+    grid-column: 1 / 2; 
+}
+
+/* Item Tengah (Anak ke-2) */
+.hobbies-media-container > :nth-child(2) { 
+    grid-column: 2 / 3; 
+}
+
+/* Item Kanan (Anak ke-3) */
+.hobbies-media-container > :nth-child(3) { 
+    grid-column: 3 / 4; 
+}
+
+
+/* Styling Ukuran Media (SERAGAM 1:1) */
+
+/* Styling untuk DIV VIDEO WRAPPER dan TAG GAMBAR */
+.hobby-video-wrapper,
+.hobby-photo {
+    width: 100%;
+    /* Tinggi seragam agar tampilan kotak/seragam */
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Penting untuk video wrapper */
+    max-width: 300px; 
+}
+
+/* Video di dalam wrapper harus mengikuti tinggi seragam */
+.hobby-video-wrapper video {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+}
+
+/* Hover effect untuk foto dan video wrapper */
+.hobby-photo:hover,
+.hobby-video-wrapper:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Responsivitas */
+
+@media (max-width: 992px) { 
+    .hobbies-media-container {
+        grid-template-columns: 1fr; 
+        margin-top: 30px;
+        gap: 20px;
+    }
+    
+    /* Semua item menempati 1 kolom penuh */
+    .hobbies-media-container > * {
+        grid-column: 1 / 2;
+        max-width: 90%; 
+        margin: auto;
+    }
+    
+    .hobby-video-wrapper,
+    .hobby-photo {
+        height: 200px; /* Ukuran seragam yang lebih kecil di mobile */
+    }
+    .hobby-video-wrapper video {
+        height: 200px;
+    }
+}
